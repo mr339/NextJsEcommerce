@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Center from "./Center";
 import { styled } from "styled-components";
 import Button from "./Button";
 import CartIcon from "./icons/CartIcon";
 import ButtonLink from "./ButtonLink";
+import { CartContext } from "./CartContext";
 const Bg = styled.div`
   background: #222;
   color: #fff;
@@ -42,6 +43,10 @@ const ButtonWrapper = styled.div`
 `;
 
 const Featured = ({ product }: any) => {
+  let { addProduct } = useContext(CartContext) as any;
+  const addFeaturedToCart = () => {
+    addProduct(product._id);
+  };
   return (
     <>
       <Bg>
@@ -60,7 +65,7 @@ const Featured = ({ product }: any) => {
                     Read more
                   </ButtonLink>
                   {/* Added 1 to fix warning */}
-                  <Button white={1}>
+                  <Button white={1} onClick={addFeaturedToCart}>
                     <CartIcon />
                     Add to cart
                   </Button>

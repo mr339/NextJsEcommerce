@@ -16,7 +16,7 @@ export const ButtonStyle = css`
     margin-right: 5px;
   }
 
-  ${(props) =>
+  ${(props: any) =>
     props.white &&
     !props.outline &&
     css`
@@ -24,7 +24,7 @@ export const ButtonStyle = css`
       color: #000;
     `}
 
-  ${(props) =>
+  ${(props: any) =>
     props.white &&
     props.outline &&
     css`
@@ -33,7 +33,7 @@ export const ButtonStyle = css`
       border: 1px solid #fff;
     `}
 
-${(props) =>
+${(props: any) =>
     props.primarybtn &&
     !props.outline &&
     css`
@@ -42,7 +42,7 @@ ${(props) =>
       color: #fff;
     `};
 
-  ${(props) =>
+  ${(props: any) =>
     props.primarybtn &&
     props.outline &&
     css`
@@ -51,7 +51,7 @@ ${(props) =>
       color: ${primary};
     `};
 
-  ${(props) =>
+  ${(props: any) =>
     props.size === "l" &&
     css`
       font-size: 1.2rem;
@@ -66,7 +66,7 @@ const StyledButton = styled.button`
   ${ButtonStyle}
 `;
 
-const Button = ({ children, ...rest }) => {
+const Button = ({ children, ...rest }: any) => {
   return (
     <>
       <StyledButton {...rest}>{children}</StyledButton>

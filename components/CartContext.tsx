@@ -9,7 +9,7 @@ export const CartContextProvider = ({ children }: any) => {
 
   useEffect(() => {
     if (cartProducts.length > 0) {
-      localStorage.setItem("cart", JSON.stringify(cartProducts));
+      ls?.setItem("cart", JSON.stringify(cartProducts));
     }
   }, [cartProducts]);
 
@@ -36,9 +36,20 @@ export const CartContextProvider = ({ children }: any) => {
     });
   };
 
+  const clearCart = () => {
+    setCartProducts([]);
+    localStorage.setItem("cart", "");
+  };
+
   return (
     <CartContext.Provider
-      value={{ cartProducts, setCartProducts, addProduct, removeProduct }}
+      value={{
+        cartProducts,
+        setCartProducts,
+        addProduct,
+        removeProduct,
+        clearCart,
+      }}
     >
       {children}
     </CartContext.Provider>

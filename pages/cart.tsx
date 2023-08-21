@@ -51,11 +51,12 @@ const CityHolder = styled.div`
 
 const CartPage = () => {
   let total = 0;
-  let { cartProducts, addProduct, removeProduct } = useContext(
+  let { cartProducts, addProduct, removeProduct, clearCart } = useContext(
     CartContext
   ) as any;
   const [products, setProducts] = useState<any>([]);
   const [name, setName] = useState<any>("");
+  const [isSuccess, setIsSuccess] = useState<any>(false);
   const [city, setCity] = useState<any>("");
   const [streetAddress, setStreetAddress] = useState<any>("");
   const [country, setCountry] = useState<any>("");
@@ -71,6 +72,16 @@ const CartPage = () => {
       setProducts([]);
     }
   }, [cartProducts]);
+
+  useEffect(() => {
+    if (
+      typeof window !== "undefined" &&
+      window?.location.href.includes("success")
+    ) {
+      setIsSuccess(true);
+      clearCart();
+    }
+  }, []);
 
   const increaseProduct = (id: any) => {
     addProduct(id);
@@ -101,7 +112,7 @@ const CartPage = () => {
     total += price;
   }
 
-  if (window.location.href.includes("success")) {
+  if (isSuccess) {
     return (
       <>
         <Header />

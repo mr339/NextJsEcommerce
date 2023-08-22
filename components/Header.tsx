@@ -31,7 +31,6 @@ const StyledLink = styled(Link)`
 
 const Header = () => {
   let { cartProducts } = useContext(CartContext) as any;
-  console.log(cartProducts, "<====");
 
   return (
     <>

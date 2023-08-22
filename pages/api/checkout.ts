@@ -65,8 +65,8 @@ export default async function handler(
     line_items,
     mode: "payment",
     customer_email: email,
-    success_url: "http://localhost:3001/cart?success=1",
-    cancel_url: "http://localhost:3001/cart?cancelled=1",
+    success_url: "http://localhost:3000/cart?success=1",
+    cancel_url: "http://localhost:3000/cart?cancelled=1",
     metadata: { orderId: orderDoc._id.toString() },
   });
 

@@ -38,7 +38,7 @@ export const CartContextProvider = ({ children }: any) => {
 
   const clearCart = () => {
     setCartProducts([]);
-    localStorage.setItem("cart", "");
+    localStorage.setItem("cart", ""); //clear cart count after success
   };
 
   return (

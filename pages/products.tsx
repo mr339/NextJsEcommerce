@@ -5,10 +5,7 @@ import Center from "@/components/Center";
 import { Product } from "@/models/product";
 import { mongooseConnect } from "@/lib/mongoose";
 import ProductsGrid from "@/components/ProductsGrid";
-
-const Title = styled.h1`
-  font-size: 1.5rem;
-`;
+import Title from "@/components/Title";
 
 const ProductsPage = ({ products }: any) => {
   return (

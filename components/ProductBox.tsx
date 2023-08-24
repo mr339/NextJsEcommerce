@@ -34,15 +34,27 @@ const ProductInfoBox = styled.div`
 `;
 
 const PriceRow = styled.div`
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: space-between;
   margin-top: 2px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 5px;
+  }
 `;
 
 const Price = styled.div`
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 5px;
+  text-align: right;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: left;
+  }
 `;
 
 const ProductBox = ({ _id, title, description, price, images }: any) => {
@@ -65,7 +77,12 @@ const ProductBox = ({ _id, title, description, price, images }: any) => {
           <Title href={url}>{title}</Title>
           <PriceRow>
             <Price>${price}</Price>
-            <Button primarybtn={1} outline={1} onClick={addNewArrivalsToCart}>
+            <Button
+              block={1}
+              primarybtn={1}
+              outline={1}
+              onClick={addNewArrivalsToCart}
+            >
               Add to cart
             </Button>
           </PriceRow>

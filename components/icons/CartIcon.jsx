@@ -1,6 +1,6 @@
 import React from "react";
 
-const CartIcon = ({}) => {
+const CartIcon = () => {
   return (
     <>
       <svg
